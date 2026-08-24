@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#102a43" />
+    <title>ParkWise — Smart Campus Parking</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar">
+        <a class="brand" href="#top" aria-label="ParkWise home"><span class="brand-mark">P</span><span>ParkWise</span></a>
+        <nav class="main-nav" aria-label="Primary navigation">
+          <a class="nav-link active" href="#dashboard"><span>▦</span> Dashboard</a>
+          <a class="nav-link" href="#parking-map"><span>⌖</span> Parking map</a>
+          <a class="nav-link" href="#route-panel"><span>⌁</span> My route</a>
+          <a class="nav-link" href="#statistics"><span>◔</span> Statistics</a>
+        </nav>
+        <div class="sidebar-tip"><span class="tip-icon">✦</span><p><strong>Parking tip</strong><br />Arrive before 9:00 AM for the widest choice of spaces.</p></div>
+        <div class="user-card"><div class="avatar">AK</div><div><strong>Alex Kumar</strong><small>Student · CSE</small></div><button aria-label="More account options">•••</button></div>
+      </aside>
+
+      <main id="top">
+        <header class="topbar">
+          <button class="menu-button" aria-label="Open navigation">☰</button>
+          <div><p class="eyebrow">MONDAY, 24 AUGUST</p><h1>Good morning, Alex <span>👋</span></h1></div>
+          <div class="header-actions"><span class="live-pill"><i></i> Live updates</span><button class="notification" aria-label="Notifications">♢<b></b></button></div>
+        </header>
+
+        <section class="hero" id="dashboard">
+          <div class="hero-copy"><span class="overline">SMART CAMPUS PARKING</span><h2>Find your spot,<br /><em>without the stress.</em></h2><p>Get a personalised parking recommendation based on where you're headed on campus.</p></div>
+          <div class="find-panel"><label for="destination">Where are you going?</label><div class="select-wrap"><span>⌖</span><select id="destination" aria-label="Destination"><option value="main">Main Academic Block</option><option value="library">Central Library</option><option value="lab">Innovation Lab</option><option value="auditorium">Auditorium</option><option value="hostel">Student Hostel</option></select></div><button class="primary-button" id="findSpot">Find my best spot <span>→</span></button></div>
+          <div class="hero-orb orb-1"></div><div class="hero-orb orb-2"></div>
+        </section>
+
+        <section class="metrics" aria-label="Parking overview">
+          <article><span class="metric-icon teal">▦</span><div><small>AVAILABLE SPACES</small><strong id="availableMetric">12</strong><p><span class="up">↑ 3</span> from 30 mins ago</p></div></article>
+          <article><span class="metric-icon navy">◒</span><div><small>OCCUPANCY</small><strong id="occupancyMetric">67%</strong><p>Moderate demand</p></div></article>
+          <article><span class="metric-icon amber">◷</span><div><small>PEAK TIME</small><strong>10:00 AM</strong><p>Expected in 42 mins</p></div></article>
+          <article><span class="metric-icon purple">⌁</span><div><small>AVG. WALK</small><strong>3.4 min</strong><p>To your destination</p></div></article>
+        </section>
+
+        <section class="content-grid">
+          <section class="map-card" id="parking-map"><div class="section-heading"><div><span class="overline">LIVE VIEW</span><h2>Campus parking map</h2></div><button class="text-button" id="refreshMap">↻ Refresh</button></div><div class="map-meta"><span><i class="legend available"></i>Available</span><span><i class="legend occupied"></i>Occupied</span><span><i class="legend reserved"></i>Reserved</span><span><i class="legend recommended"></i>Best match</span></div><div class="parking-map"><div class="road-label top-road">← CAMPUS ENTRANCE</div><div class="road vertical-road"></div><div class="building main-building">MAIN<br />BLOCK</div><div class="zone zone-a"><div class="zone-title"><b>ZONE A</b><small>North lot</small></div><div class="spots" id="zoneA"></div></div><div class="zone zone-b"><div class="zone-title"><b>ZONE B</b><small>Central lot</small></div><div class="spots" id="zoneB"></div></div><div class="entrance">⌖<br /><small>YOU ARE HERE</small></div></div><p class="map-hint">Tip: select any available space to make it your choice.</p></section>
+
+          <aside class="recommendation-card" aria-live="polite"><div class="rec-top"><span class="sparkle">✦</span><span class="rec-label">SMART RECOMMENDATION</span><span class="confidence">98% match</span></div><h2 id="recHeadline">Your best spot is <strong>A04</strong></h2><p id="recDescription">Closest available space to the Main Academic Block.</p><div class="spot-summary"><div class="spot-big" id="recSpot">A04</div><div><b id="recZone">Zone A · North lot</b><span id="recDistance">86 m away · 2 min walk</span></div><button class="route-icon" id="showRoute" aria-label="Show route">⌁</button></div><div class="score-row"><span>Why this spot?</span><span>Closest <b></b> Low congestion</span></div><button class="reserve-button" id="reserveButton">Reserve A04 <span>→</span></button><button class="cancel-button hidden" id="cancelButton">Cancel reservation</button><p class="reservation-note" id="reservationNote">Held for 10 minutes after reservation.</p></aside>
+        </section>
+
+        <section class="lower-grid"><section class="route-card" id="route-panel"><div class="section-heading"><div><span class="overline">SIMPLE NAVIGATION</span><h2>Your walking route</h2></div><span class="route-time" id="routeTime">2 min</span></div><div class="route-content"><div class="route-diagram"><span class="pin start"></span><span class="route-line"></span><span class="pin parking"></span><span class="route-line short"></span><span class="pin end"></span></div><div class="route-steps" id="routeSteps"><p><b>Current location</b><span>Campus entrance</span></p><p><b>Walk to A04</b><span>Enter Zone A via north lane</span></p><p><b>Arrive at your destination</b><span>Main Academic Block</span></p></div></div></section><section class="stats-card" id="statistics"><div class="section-heading"><div><span class="overline">TODAY'S ACTIVITY</span><h2>Parking occupancy</h2></div><button class="text-button">This week⌄</button></div><div class="chart"><div class="chart-y"><span>100</span><span>50</span><span>0</span></div><div class="bars"><i style="--h:42%"><b>Mon</b></i><i style="--h:58%"><b>Tue</b></i><i style="--h:49%"><b>Wed</b></i><i style="--h:73%"><b>Thu</b></i><i style="--h:67%" class="today"><b>Fri</b></i><i style="--h:52%"><b>Sat</b></i><i style="--h:34%"><b>Sun</b></i></div></div><p class="chart-caption"><i></i> Current occupancy: <strong id="chartOccupancy">67%</strong></p></section></section>
+      </main>
+    </div>
+    <div class="toast" id="toast" role="status"></div>
+    <script src="app.js"></script>
+  </body>
+</html>
